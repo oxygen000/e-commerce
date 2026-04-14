@@ -6,11 +6,11 @@ export async function proxy(req: NextRequest) {
   console.log("token from middleware", jwtToken);
 
   if (jwtToken == null) {
-    return NextResponse.redirect("http://localhost:3000/Login");
+    return NextResponse.redirect("https://e-commerce-abdel-hamed.vercel.app/Login");
   }
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/shop"],
+  matcher: ["/cart","/allorders","/checkout"],
 };
