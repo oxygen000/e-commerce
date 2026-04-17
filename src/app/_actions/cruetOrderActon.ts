@@ -14,7 +14,7 @@ export async function createOrderCash(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      token: token as string,
+        token: token as string,
       },
       body: JSON.stringify(shippingAddress),
     },
@@ -31,7 +31,7 @@ export async function createOrderCredit(
   const token = await getMyToken();
 
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`,
+    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://e-commerce-abdel-hamed.vercel.app`,
     {
       method: "POST",
       headers: {
