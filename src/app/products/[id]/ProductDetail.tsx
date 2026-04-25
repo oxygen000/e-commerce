@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   FaStar,
@@ -16,6 +15,12 @@ import {
 import { getProductData } from "../../_actions/getSingleProductsActon";
 import ProductGallery from "./ProductGallery";
 
+function getDiscountPercentage(price: number, priceAfterDiscount: number) {
+  if (!priceAfterDiscount || priceAfterDiscount >= price) return 0;
+
+  return Math.round(((price - priceAfterDiscount) / price) * 100);
+}
+
 export default async function ProductDetail({ id }: { id: string }) {
   const product = await getProductData(id);
 
@@ -25,7 +30,7 @@ export default async function ProductDetail({ id }: { id: string }) {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Images */}
           <div className="lg:w-1/4">
-          <ProductGallery product={product} />
+            <ProductGallery product={product} />
           </div>
 
           {/* Info */}
@@ -65,6 +70,22 @@ export default async function ProductDetail({ id }: { id: string }) {
               {/* Price */}
               <div className="mb-4">
                 <span className="text-3xl font-bold">{product.price} EGP</span>
+
+                {product.priceAfterDiscount && (
+                  <span className="text-sm text-gray-500 line-through">
+                    {product.price} EGP
+                  </span>
+                )}
+                {product.priceAfterDiscount && (
+                  <span className="text-xs bg-red-100 mx-2 text-red-600 px-2 py-0.5 rounded">
+                    Save {""}
+                    {getDiscountPercentage(
+                      product.price,
+                      product.priceAfterDiscount,
+                    )}
+                    %
+                  </span>
+                )}
               </div>
 
               {/* Stock */}

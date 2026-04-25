@@ -10,7 +10,6 @@ export default function BtnDataOrdrt({ order }: { order: OrderType }) {
 
   return (
     <div className=" rounded-2xl bg-white">
-      {/* زرار التفاصيل */}
       <div className="p-5 sm:p-6 flex justify-end">
         <button
           onClick={() => setOpen(!open)}
@@ -25,7 +24,6 @@ export default function BtnDataOrdrt({ order }: { order: OrderType }) {
         </button>
       </div>
 
-      {/* 👇 ده الجزء اللي هيظهر ويختفي */}
       {open && (
         <div className="border-t border-gray-100 bg-gray-50/50">
           <div className="p-5 sm:p-6">
@@ -72,7 +70,6 @@ export default function BtnDataOrdrt({ order }: { order: OrderType }) {
               ))}
             </div>
 
-            {/* Address + Summary (زي اللي عندك) */}
             <div className="mt-5 grid sm:grid-cols-2 gap-4">
               {/* Address */}
               <div className="p-4 bg-white rounded-xl border">

@@ -27,7 +27,7 @@ export default async function CategoriesSection() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {categories.map((cat, idx) => (
-          <Link key={idx} href={`/${cat.slug}`} className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
+          <Link key={idx} href={`/categories/${cat._id}`} className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition group cursor-pointer">
             <div className="h-20 w-20 overflow-hidden bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-emerald-200 transition">
               <Image
                 src={cat.image}

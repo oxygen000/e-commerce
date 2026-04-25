@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   FaBox,
   FaCheckCircle,
-  FaChevronDown,
   FaClock,
   FaCreditCard,
   FaHashtag,

@@ -20,7 +20,6 @@ export async function createOrderCash(
     },
   );
   const finalRes = await res.json();
-  console.log("finalRos from add to card", finalRes);
   return finalRes;
 }
 
@@ -30,8 +29,10 @@ export async function createOrderCredit(
 ) {
   const token = await getMyToken();
 
+  if (!token) return { message: "Please Login First!", statusCode: 401 };
+
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://e-commerce-abdel-hamed.vercel.app`,
+    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${process.env.NEXTAUTH_URL}`,
     {
       method: "POST",
       headers: {
@@ -42,6 +43,5 @@ export async function createOrderCredit(
     },
   );
   const finalRes = await res.json();
-  console.log("finalRos from add to card", finalRes);
   return finalRes;
 }
