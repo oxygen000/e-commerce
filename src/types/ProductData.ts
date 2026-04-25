@@ -32,6 +32,7 @@ export interface ProductDataType {
   imageCover: string;
   images: string[];
   ratingsAverage: number;
+  priceAfterDiscount?: number;
   ratingsQuantity: number;
   category: Category;
   brand: Brand;
